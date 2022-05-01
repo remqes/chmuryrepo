@@ -7,6 +7,8 @@ const { time } = require('console');
 const app = express();
 const PORT = process.env.PORT || 8080;
 
+app.set("view engine", "ejs");
+app.get("/", function(req, res){ res.redirect("/index.html");  });
 app.get('/', (req, res) => {
     try{
         if(clientIp == '::1' || clientIp == '::ffff:127.0.0.1'){
