@@ -1,4 +1,10 @@
 {
+  "name": "testtt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Michał Nurzyński",
+  "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.7",
     "express": "^4.18.1",

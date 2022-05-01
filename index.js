@@ -7,9 +7,8 @@ const { time } = require('console');
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-app.set("view engine", "ejs");
-app.get("/", function(req, res){ res.redirect("/index.html");  });
 app.get('/', (req, res) => {
+    var clientIp = requestIp.getClientIp(req);
     try{
         if(clientIp == '::1' || clientIp == '::ffff:127.0.0.1'){
           let date_nz = new Date();
