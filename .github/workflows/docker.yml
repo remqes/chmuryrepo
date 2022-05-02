@@ -35,6 +35,13 @@ jobs:
         platforms: linux/arm/v7,linux/arm64/v8,linux/amd64
         push: true
         tags: michalnurz/labox:gittchdocker
+        cache-from: type=local,src=/tmp/.buildx-cache
+        cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
+        
+    - name: Move cache
+      run: |
+        rm -rf /tmp/.buildx-cache
+        mv /tmp/.buildx-cache-new /tmp/.buildx-cache
     
     - name: Image digest
       run: echo $ {{ steps.docker_build.outputs.digest }}
