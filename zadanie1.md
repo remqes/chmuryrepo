@@ -55,3 +55,10 @@ Zbudowanie obrazów dla wybranych architektur sprzętowych.
 ![multiarch_qemu](/images/multiarch_qemu.PNG)
 ![build_arch_1](/images/docker_build_arch_1.PNG)
 ![build_arch_2](/images/docker_build_arch_2.PNG)
+
+
+### Zadanie 4 z zastosowaniem GitHub Actions
+
+[Kod pliku docker.yml](https://github.com/remqes/cloudstech-test-app/blob/master/.github/workflows/docker.yml)
+
+[Repozytorium na DockerHub](https://hub.docker.com/layers/labox/michalnurz/labox/gittchdocker/images/sha256-9a715f2372f23120ec89f6ea3b3b399e3f997a33c4960b0622e4d970c135237e?context=explore)
