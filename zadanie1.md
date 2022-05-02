@@ -5,7 +5,7 @@
 *a. po uruchomieniu kontenera, serwer pozostawia w logach informację o dacie uruchomienia, imieniu i nazwisku autora serwera (imię i nazwisko studenta) oraz porcie TCP, na którym serwer nasłuchuje na zgłoszenia klienta.*
 *b. na podstawie adresu IP klienta łączącego się z serwerem, w przeglądarce powinna zostać wyświetlona strona informująca o adresie IP klienta i na podstawie tego adresu IP, o dacie i godzinie w jego strefie czasowej.*
 
-![localhost_app](/images/heroku2.PNG)
+![localhost_app](/images/heroku2v2.PNG)
 ![heroku_app](/images/heroku1.PNG)
 ![start_app](/images/heroku3.PNG)
 
