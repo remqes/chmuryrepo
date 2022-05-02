@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
           let hours = ("0" + date_nz.getHours()).slice(-2);
           let minutes = ("0" + date_nz.getMinutes()).slice(-2);
           let date_time = year + "-" + month + "-" + date + " " + hours + ":" + minutes;
-          res.send("IP address: " + clientIp + "<br />Timezone: GMT" + (date_nz.getTimezoneOffset()) / 60 + "<br />" + date_time);
+          res.send("IP address: " + clientIp + "<br />Timezone: GMT" + -(date_nz.getTimezoneOffset()) / 60 + "<br />" + date_time);
           //dla klienta localhost, aplikacja korzysta z czasu systemowego
         }
         else{ //jezeli adres ip jest inny niż localhost
