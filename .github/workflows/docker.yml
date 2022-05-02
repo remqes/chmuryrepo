@@ -51,7 +51,7 @@ jobs:
         
     - name: Push image to ghcr
       id: docker_build
-      uses: docker/build-push-action@v2-working-branch
+      uses: docker/build-push-action@v2
       with:
         builder: ${{ steps.buildx.outputs.name }}
         context: .
