@@ -14,6 +14,9 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
       
+    - name: Tag names
+      run: echo ${{ steps.prep.outputs.tags }}
+      
     - name: Set up Qemu
       uses: docker/setup-qemu-action@v1
       
@@ -28,7 +31,12 @@ jobs:
    #     password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
         
     - name: Login to GitHub Container Registry
-      run: echo "${{ secrets.GHCR_PAT }}" | docker login https://ghcr.io -u ${{ github.actor }} --password-stdin
+      if: github.event_name != 'pull_request'
+      uses: docker/login-action@v1
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GHCR_PAT }} 
         
    # - name: Build image
    #   uses: docker/build-push-action@v2
@@ -42,20 +50,17 @@ jobs:
    #     cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
         
     - name: Push image to ghcr
-      run: |
-        IMAGE_ID=$(echo ghcr.io/${{ github.repository }} | tr '[A-Z]' '[a-z]')
-        # Strip git ref prefix from version
-        VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
-        # Strip "v" prefix from tag name
-        [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
-        # when the branch is master, replace master with latest
-        [ "$VERSION" == "master" ] && VERSION=latest
-        echo IMAGE_ID=$IMAGE_ID
-        echo VERSION=$VERSION
-        # Build and Publish container image
-        docker buildx build --push \
-        --tag $IMAGE_ID:$VERSION \
-        --platform linux/arm/v7,linux/arm64/v8,linux/amd64 .
+      id: docker_build
+      uses: docker/build-push-action@v2-working-branch
+      with:
+        builder: ${{ steps.buildx.outputs.name }}
+        context: .
+        file: ./Dockerfile
+        platforms: linux/arm/v7,linux/arm64/v8,linux/amd64
+        push: ${{ github.event_name != 'pull_request' }}
+        tags: ${{ steps.prep.outputs.tags }}
+        build-args: ${{ steps.prep.outputs.args }}
+        labels: ${{ steps.prep.outputs.labels }}
         
     - name: Move cache
       run: |
@@ -64,4 +69,3 @@ jobs:
     
     - name: Image digest
       run: echo $ {{ steps.docker_build.outputs.digest }}
-        
