@@ -71,3 +71,4 @@ Zbudowanie obrazu z wykorzystaniem GHCR:
 
 Repozytorium GitHub dla zbudowanych obrazów:
 [Repozytorium na GitHub](https://github.com/remqes/cloudstech-test-app/pkgs/container/cloudstech-test-app)
+
