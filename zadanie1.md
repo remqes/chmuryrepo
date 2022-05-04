@@ -64,7 +64,9 @@ Zbudowanie obrazu na wiele architektur:
 [Przebieg zbudowania obrazu](https://github.com/remqes/cloudstech-test-app/actions/runs/2272253093)
 
 Repozytorium DockerHub dla zbudowanych obrazów:
-[Repozytorium na DockerHub](https://hub.docker.com/layers/206300456/michalnurz/labox/gittchdocker/images/sha256-be376c1e7f45f6e47bd841833cf27e32a9cef55c79e8169b117cad897a674003?context=repo)
+[Repozytorium na DockerHub](https://hub.docker.com/layers/206300456/michalnurz/labox/gittchdocker/images/sha256-dff2cfed0a18bcbd36b9f0b3e426513fdba50b2d168eb036996bd6dca5312025?context=repo)
 
 Zbudowanie obrazu z wykorzystaniem GHCR:
 [Kod pliku docker.yml](https://github.com/remqes/cloudstech-test-app/blob/master/.github/workflows/ghcrdocker.yml)
+
+[Repozytorium na GitHub](https://github.com/remqes/cloudstech-test-app/pkgs/container/cloudstech-test-app)
