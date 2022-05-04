@@ -69,4 +69,5 @@ Repozytorium DockerHub dla zbudowanych obrazów:
 Zbudowanie obrazu z wykorzystaniem GHCR:
 [Kod pliku docker.yml](https://github.com/remqes/cloudstech-test-app/blob/master/.github/workflows/ghcrdocker.yml)
 
+Repozytorium GitHub dla zbudowanych obrazów:
 [Repozytorium na GitHub](https://github.com/remqes/cloudstech-test-app/pkgs/container/cloudstech-test-app)
