@@ -70,7 +70,7 @@ jobs:
         file: ./Dockerfile
         platforms: linux/arm/v7,linux/arm64/v8,linux/amd64
         push: true
-        tags: ghcr.io/${{ github.repository }}:${{ env.TAG }}
+        tags: ghcr.io/remqes/cloudstech-test-app:latest
         
     - name: Move cache
       run: |
