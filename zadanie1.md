@@ -61,4 +61,4 @@ Zbudowanie obrazów dla wybranych architektur sprzętowych.
 
 [Kod pliku docker.yml](https://github.com/remqes/cloudstech-test-app/blob/master/.github/workflows/docker.yml)
 
-[Repozytorium na DockerHub](https://hub.docker.com/layers/labox/michalnurz/labox/gittchdocker/images/sha256-41b2498228e1c9bea8555363044fc192e4584fb2efaf87ae33c0772bcc8c7961?context=explore)
+[Repozytorium na DockerHub](https://hub.docker.com/layers/206300456/michalnurz/labox/gittchdocker/images/sha256-4c7c3e18b620615b7f6ccf42fdd205113823ad9b732429be48429702c6e3c16a?context=repo)
