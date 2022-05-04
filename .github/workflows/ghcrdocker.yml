@@ -3,10 +3,11 @@ name: Docker CI
 on:
   push:
     branches: [ master ]
-    
-env:
-  REGISTRY: ghcr.io
-
+    tags:
+      - '*'
+    paths-ignore:
+      - '**.md'
+      
 jobs:
 
   build-push-images:
@@ -56,7 +57,12 @@ jobs:
    #     tags: michalnurz/labox:gittchdocker
    #     cache-from: type=local,src=/tmp/.buildx-cache
    #     cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
-        
+    
+    - if: startsWith(github.ref, 'refs/heads/master')
+      run: echo "TAG=latest" >> $GITHUB_ENV
+    - if: startsWith(github.ref, 'refs/tags')
+      run: echo "TAG=$(git describe --tags)" >> $GITHUB_ENV
+      
     - name: Build and push
       uses: docker/build-push-action@v2
       with:
@@ -64,11 +70,7 @@ jobs:
         file: ./Dockerfile
         platforms: linux/arm/v7,linux/arm64/v8,linux/amd64
         push: true
-        tags: |
-          user/app:latest
-          user/app:1.0.0
-          ghcr.io/user/app:latest
-          ghcr.io/user/app:1.0.0
+        tags: ghcr.io/${{ github.repository }}:${{ env.TAG }}
         
     - name: Move cache
       run: |
