@@ -30,7 +30,7 @@ Plik Dockerfile znajduje się w repozytorium.
 
 *c. sposobu uzyskania informacji, które wygenerował serwer w trakcie uruchamiana kontenera (patrz: punkt 1a),*
 
-Informacje są wyświetlane przy uruchomieniu kontenera.
+`$ docker logs dockerapp`
 
 *d. sprawdzenia, ile warstw posiada zbudowany obraz.*
 
