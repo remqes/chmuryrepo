@@ -9,7 +9,7 @@
 ![heroku_app](/images/heroku1.PNG)
 ![start_app](/images/heroku3.PNG)
 
-Kod aplikacji znajduje się w repozytorium, zaś dodatkowo w kodzie znajdują się komentarze objaśniające działanie programu.
+[Kod aplikacji](https://github.com/remqes/cloudstech-test-app/blob/master/index.js) znajduje się w repozytorium, zaś dodatkowo w kodzie znajdują się komentarze objaśniające działanie programu.
 
 Test działania aplikacji można wykonać [tutaj](http://cloudstech-test-app.herokuapp.com/) z wykorzystaniem platformy Heroku (uruchomiono dla testu aplikacji z pozyskaniem adresów ip innych niż localhost).
 
@@ -17,7 +17,7 @@ Test działania aplikacji można wykonać [tutaj](http://cloudstech-test-app.her
 ### 2. Opracować plik Dockerfile, który pozwoli na zbudowanie obrazu kontenera realizującego funkcjonalność opisaną w punkcie 1. 
 *Przy ocenie brane będzie sposób opracowania tego pliku (dobór obrazu bazowego, wieloetapowe budowanie obrazu, ewentualne wykorzystanie warstwy scratch, optymalizacja pod kątem funkcjonowania cache-a w procesie budowania). Dockerfile powinien również zawierać informację o autorze tego pliku (ponownie imię i nazwisko studenta).*
 
-Plik Dockerfile znajduje się w repozytorium.
+[Plik Dockerfile](https://github.com/remqes/cloudstech-test-app/blob/master/Dockerfile) znajduje się w repozytorium.
 
 ### 3. Należy podać polecenia niezbędne do:
 *a. zbudowania opracowanego obrazu kontenera,*
@@ -43,11 +43,17 @@ Plik Dockerfile znajduje się w repozytorium.
 *Obrazy te należy przesłać do swojego repozytorium na DockerHub. W sprawozdaniu należy podać wykorzystane instrukcje wraz z wynikiem ich działania i ewentualnymi komentarzami.*
 
 Instalacja zasobów qemu w dedykowanym kontenerze.
+
 `$ docker run --rm --privileged multiarch/qemu-user-static --reset -p yes`
+
 Utworzenie środowiska budowania obrazów wykorzystującego buildx.
+
 `$ docker buildx create --name dockerbuildx`
+
 `$ docker buildx use dockerbuildx`
+
 Zbudowanie obrazów dla wybranych architektur sprzętowych.
+
 `$ docker buildx build -t michalnurz/labox:tchdocker --platform linux/arm/v7,linux/arm64/v8,linux/amd64 --push .`
 
 [Repozytorium na DockerHub](https://hub.docker.com/layers/206189827/michalnurz/labox/tchdocker/images/sha256-f4a21c9ace5a7ae489a0905df94a4ef270b1e7e43fa1949fffcbf344c7c95507?context=repo)
